@@ -8,7 +8,7 @@
 
         1. How to use
             - Deploy the SCARDREADER.EAR in a secure server (will be converted to JAR in future version)
-            - place the SCARDREADER.db sqlite file in the place you want in the server machine and assigned to a environment variable SCARDREADER in the server
+            - Put the SCARDREADER.db sqlite file under D directory ,Will Convert to deploy inside the server in future release 
             - Load index-SCARDREADER.html dynamically in the area of the page you want using angular or Backbone JS
               or
             - Add the content in index-SCARDREADER.html in your web page
