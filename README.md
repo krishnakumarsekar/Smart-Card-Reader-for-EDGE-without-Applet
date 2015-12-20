@@ -38,7 +38,7 @@
           - No installation problem
           - No dependency with any browser
           - All datas are secure and there is no client interaction in the data from the card
-          - No one can able to send data without card and card reader(Because the communication is from client app to server),More                Security can be provided by using card certificate
+          - No one can able to send data without card and card reader(Because the communication is from client app to server),More Security can be provided by using card certificate
           - NO CSRF or Any cookies issue
           - Support in httpOnly cookie
           - The one disadvantage is design is complex
@@ -76,8 +76,8 @@
         5. Advantages and Disadvantages
           - Support for all browsers
           - Several Antiviruse problem may come
-          - Anyone can give a response without card reader and card by simply hosting a server in port 8001(No Solution available so              far)
-          - All datas are directly communicated in the client machine ,Client or end user can alter the data if its needs in server               without any change
+          - Anyone can give a response without card reader and card by simply hosting a server in port 8001(No Solution available so far)
+          - All datas are directly communicated in the client machine ,Client or end user can alter the data if its needs in server without any change
           - CSRF issues Supported and gives secure csrf communication
           - A separate secure cookies and headers can be pass from main domain to the client server for more security
           - Dont support httpOnly cookie
