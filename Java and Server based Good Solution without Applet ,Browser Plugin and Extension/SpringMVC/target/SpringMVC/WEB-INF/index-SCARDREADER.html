@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        var scrt_var;
+        var randomValue = Math.ceil(Math.random() * 1000000000);
+
+        function httpGetAsync(theUrl, callback) {
+            var xmlHttp;
+            if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlHttp = new XMLHttpRequest();
+            } else { // code for IE6, IE5
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous
+            xmlHttp.send(null);
+        }
+        var a = function(response) {
+            $('body').html(response);
+        }
+
+        function alertFunc() {
+            if ($('h3').text() !== "Status : card-reader-detected-and-card-present:true") {
+                httpGetAsync("https://" + window.location.host + "/SpringMVC/client/" + randomValue, a);
+            }
+            setTimeout(alertFunc, 6000);
+        }
+
+
+        function registerationFunc() {
+            localStorage.setItem("SCARDREADER_APP_INSTALLED", "YES");
+
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        scrt_var = "https://" + window.location.host + "/SpringMVC/movie/" + randomValue;
+    </script>
+</head>
+
+<body>
+    <a href="SCARDREADER://" onclick="location.href=this.href+scrt_var;alertFunc();return false;">Start Detecting</a>
+    <h1>Smart Card Reader</h1>
+
+    <h3>Status : Not Started</h3>
+
+</body>
+<script>
+    if (localStorage.getItem("SCARDREADER_APP_INSTALLED") === null) {
+        $('body').append("<label>Please Install SCARDREADER.EXE for the first time,if you did not installed you will get an error as problem in communication,Please leave it if you already installed in other browsers in the same machine</label><a href='/SpringMVC/resources/SCARDREADER-installer.exe' onclick='registerationFunc()'>Click to download</a>");
+    }
+</script>
+
+</html>
