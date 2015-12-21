@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        var scrt_var;
+        var randomValue = Math.ceil(Math.random() * 1000000000);
+
+        function httpGetAsync(theUrl, callback) {
+            var xmlHttp;
+            if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlHttp = new XMLHttpRequest();
+            } else { // code for IE6, IE5
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            var selectedOption1=1;
+            var selectedOption2=2;
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous
+            xmlHttp.setRequestHeader("selectedoption1",2);
+            xmlHttp.setRequestHeader("selectedOption2",2);
+            xmlHttp.send("hai");
+        }
+        var a = function(response) {
+            $('body').html(response);
+            if(response.match("Card Present"))
+            	sessionStorage.setItem('isFinished','Yes');
+        }
+
+        function alertFunc() {
+            if (sessionStorage.getItem('isFinished') !== "Yes") {
+                httpGetAsync("http://localhost:8002/test", a);
+            }
+            setTimeout(alertFunc, 6000);
+        }
+
+
+        function registerationFunc() {
+            localStorage.setItem("SCARDREADER_APP_INSTALLED", "YES");
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <button onclick="sessionStorage.setItem('isFinished','No');alertFunc()">Start Detecting</button>
+    <h1>Smart Card Reader</h1>
+
+    <h3>Status ::- </h3>
+
+</body>
+<script>
+    if (localStorage.getItem("SCARDREADER_APP_INSTALLED") === null) {
+        $('body').append("<label>Please Install SCARDREADER.EXE for the first time,if you did not installed you will get an error as problem in communication,Please leave it if you already installed in other browsers in the same machine</label><a href='/resources/SCARDREADER-installer.exe' onclick='registerationFunc()'>Click to download</a>");
+    }
+</script>
+
+</html>

@@ -33,6 +33,8 @@
           - Several Antiviruse problem may come
           - Anyone can give a response without card reader and card by simply hosting a server in port 8001
           - All datas are directly communicated in the client machine ,Client or end user can alter the data if its needs in server without any change
-          - CSRF issues Supported and gives secure csrf communication   
+          - CSRF issues Supported and gives secure csrf communication
+        6. Testing
+          - https://localhost:8001/test   
           
  
