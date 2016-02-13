@@ -126,9 +126,9 @@
           - Run http://localhost:8002/test  
           
 
-#### 4. A chrome extension based solution in the client side to support for chrome and for android
+#### 4. A chrome extension based solution in the client side to support for chrome and for                                                    android
 
-####### Please refer https://github.com/egelke/
+###### Please refer https://github.com/egelke/
 
  
 
